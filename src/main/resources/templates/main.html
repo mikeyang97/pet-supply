@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+<body>
+<h1>PetNeeds</h1>
+<br/>
+
+<form class="getCustomerByUsername" action="main.html" method="post" th:action="@{/getCustomerByUsername}">
+    select * from Customers where Username = <input type="text" name="username" placeholder="Username"/><br>
+    <input type="submit" value="submit"/>
+</form>
+
+<br/>
+<form class="insertCustomer" action="main.html" method="post" th:action="@{/insertCustomer}">
+    insert into Customers(`Username`, `FirstName`, `LastName`, `Membership`, `DOB`, `PaymentInfo`, `Phone`, `Address`, `Email`)
+                values(<br><input type="text" name="Username" placeholder="Username"/>,<br>
+    <input type="text" name="FirstName" placeholder="FirstName"/>,<br>
+    <input type="text" name="LastName" placeholder="LastName"/>,<br>
+    <input type="text" name="Membership" placeholder="Membership"/>,<br>
+    <input type="text" name="DOB" placeholder="DOB"/>,<br>
+    <input type="text" name="PaymentInfo" placeholder="PaymentInfo"/>,<br>
+    <input type="text" name="Phone" placeholder="Phone"/>,<br>
+    <input type="text" name="Address" placeholder="Address"/>,<br>
+    <input type="text" name="Email" placeholder="Email"/>)
+    <input type="submit" value="insert"/>
+</form>
+
+<br/>
+<form class="getByShippingNum" action="main.html" method="post" th:action="@{/getByShippingNum}">
+    SELECT Username, Address, Phone FROM Customers c natural join CustomerOrders co WHERE co.ShippingNum = <input type="text" name="ShippingNum" placeholder="ShippingNum"/>
+    <input type="submit" value="submit"/>
+</form>
+
+<br/>
+<form class="getByOrderID" action="main.html" method="post" th:action="@{/getByOrderID}">
+    SELECT Fulfill.ShipDate FROM (Fulfill natural JOIN SupplierOrders) WHERE SupplierOrders.OrderID = <input type="text" name="OrderID" placeholder="OrderID"/>
+    <input type="submit" value="submit"/>
+</form>
+
+<br/>
+<form class="getByUID" action="main.html" method="post" th:action="@{/getByUID}">
+    select Name, StockQty, (Price * Discount - Cost) as Profit, Rating from Products where UID = <input type="text" name="UID" placeholder="UID"/>
+    <input type="submit" value="submit"/>
+</form>
+
+<br/>
+<form class="deleteByRating" action="main.html" method="post" th:action="@{/deleteByRating}">
+    delete from Products where Rating < <input type="text" name="Rating" placeholder="Rating"/>
+    <input type="submit" value="submit"/>
+</form>
+
+<br/>
+<form class="getByPurchaseID" action="main.html" method="post" th:action="@{/getByPurchaseID}">
+    SELECT FirstName, LastName FROM Customers NATURAL JOIN Purchase WHERE PurchaseID = <input type="text" name="PurchaseID" placeholder="PurchaseID"/>
+    <input type="submit" value="submit"/>
+</form>
+
+<br/>
+<form class="bestRatingProduct" action="main.html" method="post" th:action="@{/bestRatingProduct}">
+    SELECT P.name FROM Products P WHERE P.rating =  <input type="text" name="Rating" placeholder="Rating"/>
+    <input type="submit" value="submit"/>
+</form>
+
+<br/>
+
+<form class="generalQuery" action="generalQuery.html" method="get" th:action="@{/generalQuery}">
+    <button class="generalQuery" type="submit">General Query</button>
+</form>
+</body>
+</html>

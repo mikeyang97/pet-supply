@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/PetNeeds
+    username: root
+    password: Lwc920530
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jdbc:
+    template:
+      query-timeout: 3000

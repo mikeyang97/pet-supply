@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Query</title>
+</head>
+<body>
+</div>
+<form class="count" action="generalQuery.html" method="post" th:action="@{/count}">
+    SELECT COUNT(*) FROM <input type="text" name="arg1" placeholder="arg1"/>
+    WHERE <input type="text" name="arg2" placeholder="arg2"/>
+     <input type="text" name="arg3" placeholder="arg3"/>
+     <input type="text" name="arg4" placeholder="arg4"/>
+    <input type="submit" value="submit"/><br/>
+</form>
+</div>
+<br/>
+<br/>
+<br/>
+</div>
+<form class="selectOne" action="generalQuery.html" method="post" th:action="@{/selectOne}">
+    SELECT <input type="text" name="arg1" placeholder="arg1"/>,
+    FROM<input type="text" name="arg2" placeholder="arg2"/>
+    WHERE<input type="text" name="arg3" placeholder="arg3"/>
+     <input type="text" name="arg4" placeholder="arg4"/>
+     <input type="text" name="arg5" placeholder="arg5"/>
+     <input type="submit" value="submit"/><br/>
+</form>
+</div>
+<br/>
+<br/>
+<br/>
+
+<div>
+<form class="selectTwo" action="generalQuery.html" method="post" th:action="@{/selectTwo}">
+    SELECT <input type="text" name="arg1" placeholder="arg1"/>,
+    <input type="text" name="arg2" placeholder="arg2"/>
+    FROM <input type="text" name="arg3" placeholder="arg3"/>
+    WHERE <input type="text" name="arg4" placeholder="arg4"/>
+    <input type="text" name="arg5" placeholder="arg5"/>
+    <input type="text" name="arg6" placeholder="arg6"/>
+    <input type="submit" value="submit"/><br/>
+</form>
+
+</div>
+
+<br/>
+<br/>
+<br/>
+
+<form class="back" action="main.html" method="get" th:action="@{/main}">
+    <button class="back" type="submit">Back</button>
+</form>
+</body>
+</html>
